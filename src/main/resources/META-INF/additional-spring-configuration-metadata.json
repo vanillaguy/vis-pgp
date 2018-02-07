@@ -1,0 +1,48 @@
+{
+  "properties": [
+    {
+      "name": "vis.pgp.plain.in.dir",
+      "type": "java.lang.String",
+      "description": "Input directory for \"plain\" (unencrypted) files."
+    },
+    {
+      "name": "vis.pgp.enc.out.dir",
+      "type": "java.lang.String",
+      "description": "Output directory for encrypted files."
+    },
+    {
+      "name": "vis.pgp.enc.in.dir",
+      "type": "java.lang.String",
+      "description": "Input directory for encrypted files."
+    },
+    {
+      "name": "vis.pgp.plain.out.dir",
+      "type": "java.lang.String",
+      "description": "Output directory for decrypted files."
+    },
+    {
+      "name": "vis.pgp.publicKey.file",
+      "type": "java.lang.String",
+      "description": "PGP public key."
+    },
+    {
+      "name": "vis.pgp.publicKey.userid",
+      "type": "java.lang.String",
+      "description": "Public key user id."
+    },
+    {
+      "name": "vis.pgp.privateKey.file",
+      "type": "java.lang.String",
+      "description": "Private key file."
+    },
+    {
+      "name": "vis.pgp.privateKey.userid",
+      "type": "java.lang.String",
+      "description": "Private key user id."
+    },
+    {
+      "name": "vis.pgp.privateKey.password",
+      "type": "java.lang.String",
+      "description": "Private key passphrase."
+    }
+  ] }
