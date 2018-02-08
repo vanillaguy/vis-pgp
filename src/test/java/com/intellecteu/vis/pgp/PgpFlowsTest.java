@@ -6,15 +6,20 @@ import org.apache.camel.builder.AdviceWithRouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.CamelSpringBootRunner;
 import org.apache.camel.test.spring.UseAdviceWith;
+import org.apache.camel.test.spring.UseOverridePropertiesWithPropertiesComponent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
+
+import java.util.Properties;
 
 @RunWith(CamelSpringBootRunner.class)
 @SpringBootTest(classes = VisPgpApplication.class)
 @UseAdviceWith
+@TestPropertySource("classpath:test.properties")
 public class PgpFlowsTest {
 
     @Autowired
@@ -69,6 +74,16 @@ public class PgpFlowsTest {
         });
         
         camelContext.start();
+    }
+    
+    @UseOverridePropertiesWithPropertiesComponent
+    public static Properties overrideProperties() {
+        Properties props = new Properties();
+
+        props.put("vis.pgp.file.enc.enable", true);
+        props.put("vis.pgp.file.dec.enable", true);
+
+        return props;
     }
     
     private void mockRoute(String routeId, AdviceWithRouteBuilder builder) throws Exception {

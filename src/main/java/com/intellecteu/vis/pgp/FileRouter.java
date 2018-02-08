@@ -15,7 +15,7 @@ public class FileRouter extends RouteBuilder {
 
     @Override
     public void configure() {
-        from("file://{{vis.pgp.plain.in.dir}}" + FILE_OPTIONS).id("EncryptFileToFile")
+        from("file://{{vis.pgp.plain.in.dir}}" + FILE_OPTIONS).id("EncryptFileToFile").autoStartup("{{vis.pgp.file.enc.enable}}")
                 .log("\n*** Received file [${headers.CamelFileName}] from [{{vis.pgp.plain.in.dir}}] directory.")
                 
                 .to("direct://pgpEncrypt")
@@ -24,7 +24,7 @@ public class FileRouter extends RouteBuilder {
                 
                 .log("\n*** Encrypted file saved to folder [{{vis.pgp.enc.out.dir}}] as [${headers.CamelFileNameProduced}]");
         
-        from("file://{{vis.pgp.enc.in.dir}}" + FILE_OPTIONS).id("DecryptFileToFile")
+        from("file://{{vis.pgp.enc.in.dir}}" + FILE_OPTIONS).id("DecryptFileToFile").autoStartup("{{vis.pgp.file.dec.enable}}")
                 .log("\n*** Received file [${headers.CamelFileName}] from [{{vis.pgp.enc.in.dir}}] directory.")
                 
                 .to("direct:pgpDecrypt")

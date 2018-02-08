@@ -44,5 +44,15 @@
       "name": "vis.pgp.privateKey.password",
       "type": "java.lang.String",
       "description": "Private key passphrase."
+    },
+    {
+      "name": "vis.pgp.file.enc.enable",
+      "type": "java.lang.Boolean",
+      "description": "Enable/disable file connector for ecryption."
+    },
+    {
+      "name": "vis.pgp.file.dec.enable",
+      "type": "java.lang.Boolean",
+      "description": "Enable/disable file connector for decryption."
     }
   ] }
