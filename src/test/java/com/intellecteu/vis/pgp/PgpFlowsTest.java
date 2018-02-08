@@ -1,22 +1,13 @@
 package com.intellecteu.vis.pgp;
 
 
-import org.apache.camel.*;
-import org.apache.camel.builder.AdviceWithRouteBuilder;
+import org.apache.camel.EndpointInject;
+import org.apache.camel.Produce;
+import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
-import org.apache.camel.test.spring.CamelSpringBootRunner;
-import org.apache.camel.test.spring.UseAdviceWith;
-import org.apache.camel.test.spring.UseOverridePropertiesWithPropertiesComponent;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
 
-import java.util.Properties;
-
-public class PgpFlowsTest extends BaseTest{
+public class PgpFlowsTest extends BaseTest {
 
     @Produce(uri = "direct://encryptFile")
     private ProducerTemplate encryptFile;
@@ -34,48 +25,12 @@ public class PgpFlowsTest extends BaseTest{
     @Test
     public void testEncryptDecryptFlow() throws InterruptedException {
         saveEncryptedFile.expectedMessageCount(1);
-
-        saveDecryptedFile.expectedMessageCount(1);
         saveDecryptedFile.expectedBodiesReceived("This is the test message");
 
         encryptFile.sendBody("This is the test message");
-
-        saveEncryptedFile.assertIsSatisfied();
-
-        decryptFile.send(saveEncryptedFile.getExchanges().get(0));
         
+        saveEncryptedFile.assertIsSatisfied();
         saveDecryptedFile.assertIsSatisfied();
         
-    }
-    
-    @Before
-    public void mockRoutes() throws Exception {
-        mockRoute("EncryptFileToFile", new AdviceWithRouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                replaceFromWith("direct://encryptFile");
-                weaveById("SaveEncryptedFile").replace().to("mock://saveEncryptedFile");
-            }
-        });
-        
-        mockRoute("DecryptFileToFile", new AdviceWithRouteBuilder() {
-            @Override
-            public void configure() throws Exception {
-                replaceFromWith("direct://decryptFile");
-                weaveById("SaveDecryptedFile").replace().to("mock://saveDecryptedFile");
-            }
-        });
-        
-        camelContext.start();
-    }
-    
-    @UseOverridePropertiesWithPropertiesComponent
-    public static Properties overrideProperties() {
-        Properties props = new Properties();
-
-        props.put("vis.pgp.file.enc.enable", true);
-        props.put("vis.pgp.file.dec.enable", true);
-
-        return props;
     }
 }

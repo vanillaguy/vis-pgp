@@ -22,7 +22,7 @@ public class PgpRouter extends RouteBuilder {
     
                 .marshal().pgp("", "", "", true, true)
                 
-                .log("\n*** Encryption completed");
+                .log("\n*** Encryption completed.");
 
         from("direct://pgpDecrypt").id("VIS_PGP_Decrypt")
                 .log("\n*** Decrypting payload for [{{vis.pgp.publicKey.userid}}] User ID...")
@@ -38,6 +38,6 @@ public class PgpRouter extends RouteBuilder {
 
                 .unmarshal().pgp("", "", "", true, true)
 
-                .log("\n*** Encryption completed");
+                .log("\n*** Decryption completed.");
     }
 }
