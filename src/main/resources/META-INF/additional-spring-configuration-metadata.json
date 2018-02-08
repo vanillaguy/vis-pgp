@@ -54,5 +54,45 @@
       "name": "vis.pgp.file.dec.enable",
       "type": "java.lang.Boolean",
       "description": "Enable/disable file connector for decryption."
+    },
+    {
+      "name": "vis.to.sftp.password",
+      "type": "java.lang.String",
+      "description": "Password for the SFTP that is used as destination endpoint."
+    },
+    {
+      "name": "vis.to.sftp.uri",
+      "type": "java.lang.String",
+      "description": "SFTP URI that is used as destination endpoint."
+    },
+    {
+      "name": "vis.to.sftp.in.dir",
+      "type": "java.lang.String",
+      "description": "Source directory for files that will be sent to SFTP."
+    },
+    {
+      "name": "vis.to.sftp.enable",
+      "type": "java.lang.String",
+      "description": "Enable/disable transport route from file to SFTP."
+    },
+    {
+      "name": "vis.from.sftp.out.dir",
+      "type": "java.lang.String",
+      "description": "Destination directory for files from SFTP."
+    },
+    {
+      "name": "vis.from.sftp.password",
+      "type": "java.lang.String",
+      "description": "Password for the SFTP that is used as source endpoint."
+    },
+    {
+      "name": "vis.from.sftp.uri",
+      "type": "java.lang.String",
+      "description": "SFTP URI that is used as source endpoint."
+    },
+    {
+      "name": "vis.from.sftp.enable",
+      "type": "java.lang.String",
+      "description": "Enable/disable transport route from SFTP to file."
     }
   ] }

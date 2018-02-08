@@ -3,6 +3,8 @@ package com.intellecteu.vis.pgp;
 import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
+import static com.intellecteu.vis.pgp.consts.Constants.MOVE_FILE_OPTIONS;
+
 /**
  * Camel routes for file connectors
  * 
@@ -11,11 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileRouter extends RouteBuilder {
 
-    private static final String FILE_OPTIONS = "?move=.done&moveFailed=.error";
+
 
     @Override
     public void configure() {
-        from("file://{{vis.pgp.plain.in.dir}}" + FILE_OPTIONS).id("EncryptFileToFile").autoStartup("{{vis.pgp.file.enc.enable}}")
+        from("file://{{vis.pgp.plain.in.dir}}" + MOVE_FILE_OPTIONS).id("EncryptFileToFile").autoStartup("{{vis.pgp.file.enc.enable}}")
                 .log("\n*** Received file [${headers.CamelFileName}] from [{{vis.pgp.plain.in.dir}}] directory.")
                 
                 .to("direct://pgpEncrypt")
@@ -24,7 +26,7 @@ public class FileRouter extends RouteBuilder {
                 
                 .log("\n*** Encrypted file saved to folder [{{vis.pgp.enc.out.dir}}] as [${headers.CamelFileNameProduced}]");
         
-        from("file://{{vis.pgp.enc.in.dir}}" + FILE_OPTIONS).id("DecryptFileToFile").autoStartup("{{vis.pgp.file.dec.enable}}")
+        from("file://{{vis.pgp.enc.in.dir}}" + MOVE_FILE_OPTIONS).id("DecryptFileToFile").autoStartup("{{vis.pgp.file.dec.enable}}")
                 .log("\n*** Received file [${headers.CamelFileName}] from [{{vis.pgp.enc.in.dir}}] directory.")
                 
                 .to("direct:pgpDecrypt")
