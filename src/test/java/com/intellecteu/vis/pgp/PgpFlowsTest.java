@@ -16,15 +16,8 @@ import org.springframework.test.context.TestPropertySource;
 
 import java.util.Properties;
 
-@RunWith(CamelSpringBootRunner.class)
-@SpringBootTest(classes = VisPgpApplication.class)
-@UseAdviceWith
-@TestPropertySource("classpath:test.properties")
-public class PgpFlowsTest {
+public class PgpFlowsTest extends BaseTest{
 
-    @Autowired
-    private CamelContext camelContext;
-    
     @Produce(uri = "direct://encryptFile")
     private ProducerTemplate encryptFile;
     
@@ -84,10 +77,5 @@ public class PgpFlowsTest {
         props.put("vis.pgp.file.dec.enable", true);
 
         return props;
-    }
-    
-    private void mockRoute(String routeId, AdviceWithRouteBuilder builder) throws Exception {
-        camelContext.getRouteDefinition(routeId).adviceWith(camelContext, builder);
-        
     }
 }

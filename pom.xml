@@ -15,6 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring.boot-version>1.5.8.RELEASE</spring.boot-version>
+        <camel-version>2.20.2</camel-version>
     </properties>
 
     <dependencyManagement>
@@ -31,7 +32,7 @@
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-boot-dependencies</artifactId>
-                <version>2.20.2</version>
+                <version>${camel-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -44,7 +45,12 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-spring-boot-starter</artifactId>
-            <version>2.20.2</version>
+            <version>${camel-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-ftp-starter</artifactId>
+            <version>${camel-version}</version>
         </dependency>
 
         <!-- Spring Boot -->

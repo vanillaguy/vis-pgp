@@ -1,0 +1,1 @@
+package com.intellecteu.vis.pgp.consts;public class Constants {    public static final String MOVE_FILE_OPTIONS = "?move=.done&moveFailed=.error";}
