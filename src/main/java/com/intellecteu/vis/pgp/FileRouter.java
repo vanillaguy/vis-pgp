@@ -33,6 +33,6 @@ public class FileRouter extends RouteBuilder {
                 
                 .to("file://{{vis.pgp.plain.out.dir}}?fileName=${headers.CamelFileName}").id("SaveDecryptedFile")
 
-                .log("\n*** Encrypted file saved to folder [{{vis.pgp.plain.out.dir}}] as [${headers.CamelFileNameProduced}]");
+                .log("\n*** Decrypted file saved to folder [{{vis.pgp.plain.out.dir}}] as [${headers.CamelFileNameProduced}]");
     }
 }
