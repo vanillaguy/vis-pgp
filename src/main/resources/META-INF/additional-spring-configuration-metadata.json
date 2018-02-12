@@ -58,17 +58,47 @@
     {
       "name": "vis.to.sftp.password",
       "type": "java.lang.String",
-      "description": "Password for the SFTP that is used as destination endpoint."
+      "description": "Password that should be used for the destination SFTP connection."
     },
     {
-      "name": "vis.to.sftp.uri",
+      "name": "vis.to.sftp.dir.path",
       "type": "java.lang.String",
-      "description": "SFTP URI that is used as destination endpoint."
+      "description": "Directory where a file should be placed on the destination SFTP server."
+    },
+    {
+      "name": "vis.to.sftp.port",
+      "type": "java.lang.String",
+      "description": "Port that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.hostname",
+      "type": "java.lang.String",
+      "description": "Hostname that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.username",
+      "type": "java.lang.String",
+      "description": "Username that should be used for the destination SFTP connection."
     },
     {
       "name": "vis.to.sftp.in.dir",
       "type": "java.lang.String",
       "description": "Source directory for files that will be sent to SFTP."
+    },
+    {
+      "name": "vis.to.sftp.known.hosts.file",
+      "type": "java.lang.String",
+      "description": "Known hosts that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.private.key.passphrase",
+      "type": "java.lang.String",
+      "description": "Passphrase that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.private.key.file",
+      "type": "java.lang.String",
+      "description": "Private key that should be used for the destination SFTP connection."
     },
     {
       "name": "vis.to.sftp.enable",
@@ -83,16 +113,46 @@
     {
       "name": "vis.from.sftp.password",
       "type": "java.lang.String",
-      "description": "Password for the SFTP that is used as source endpoint."
+      "description": "Password that should be used for the source SFTP connection."
     },
     {
-      "name": "vis.from.sftp.uri",
+      "name": "vis.from.sftp.dir.path",
       "type": "java.lang.String",
-      "description": "SFTP URI that is used as source endpoint."
+      "description": "Directory from which a file should be taken on the source SFTP server."
+    },
+    {
+      "name": "vis.from.sftp.port",
+      "type": "java.lang.String",
+      "description": "Port that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.hostname",
+      "type": "java.lang.String",
+      "description": "Hostname that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.username",
+      "type": "java.lang.String",
+      "description": "Username that should be used for the source SFTP connection."
     },
     {
       "name": "vis.from.sftp.enable",
       "type": "java.lang.String",
       "description": "Enable/disable transport route from SFTP to file."
+    },
+    {
+      "name": "vis.from.sftp.known.hosts.file",
+      "type": "java.lang.String",
+      "description": "Known hosts that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.private.key.passphrase",
+      "type": "java.lang.String",
+      "description": "Passphrase that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.private.key.file",
+      "type": "java.lang.String",
+      "description": "Private key that should be used for the source SFTP connection."
     }
   ] }
