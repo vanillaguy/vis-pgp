@@ -86,6 +86,21 @@
       "description": "Source directory for files that will be sent to SFTP."
     },
     {
+      "name": "vis.to.sftp.known.hosts.file",
+      "type": "java.lang.String",
+      "description": "Known hosts that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.private.key.passphrase",
+      "type": "java.lang.String",
+      "description": "Passphrase that should be used for the destination SFTP connection."
+    },
+    {
+      "name": "vis.to.sftp.private.key.file",
+      "type": "java.lang.String",
+      "description": "Private key that should be used for the destination SFTP connection."
+    },
+    {
       "name": "vis.to.sftp.enable",
       "type": "java.lang.String",
       "description": "Enable/disable transport route from file to SFTP."
@@ -124,5 +139,20 @@
       "name": "vis.from.sftp.enable",
       "type": "java.lang.String",
       "description": "Enable/disable transport route from SFTP to file."
+    },
+    {
+      "name": "vis.from.sftp.known.hosts.file",
+      "type": "java.lang.String",
+      "description": "Known hosts that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.private.key.passphrase",
+      "type": "java.lang.String",
+      "description": "Passphrase that should be used for the source SFTP connection."
+    },
+    {
+      "name": "vis.from.sftp.private.key.file",
+      "type": "java.lang.String",
+      "description": "Private key that should be used for the source SFTP connection."
     }
   ] }
